@@ -6,5 +6,6 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /anjana/src/app
 COPY --from=build /app/target/palindrome-api.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
 
